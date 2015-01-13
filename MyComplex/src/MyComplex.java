@@ -1,5 +1,9 @@
 public class MyComplex {
+<<<<<<< HEAD
 	// Private instance variable, not accessible from outside this class
+=======
+    // Private instance variable, not accessible from outside this class
+>>>>>>> 68a64ebc24a88fd5ffa54a9801416879ce93022f
     private double real;
     private double imag;
     
@@ -95,4 +99,8 @@ public class MyComplex {
        
         return new MyComplex(a, b);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 68a64ebc24a88fd5ffa54a9801416879ce93022f
