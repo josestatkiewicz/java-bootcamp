@@ -1,7 +1,6 @@
 public class TestMyComplex {
     
 	public static void main(String[] args) {
-         MyComplex comp1 = new MyComplex(2, 3);
          MyComplex comp2 = new MyComplex(3, 2);
          MyComplex comp3 = new MyComplex(0, 0);
          
