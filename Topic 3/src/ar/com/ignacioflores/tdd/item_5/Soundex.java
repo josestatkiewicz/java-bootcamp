@@ -107,10 +107,13 @@ public class Soundex {
 		String res = "";
 		char preH = '0';
 		
-		for (int i=0; i<word.length()-2;i++){
+		for (int i=0; i<word.length()-2; i++){
 			if (cod.charAt(i) != cod.charAt(i+1)){
 				if ((cod.charAt(i) != 'v') && (cod.charAt(i) != 'h')){
-					if (preH == '0'){
+					if (cod.charAt(i+1) == 'h'){
+						preH = cod.charAt(i);
+					}
+					else if (preH == '0'){
 						res = res + cod.charAt(i);
 					}
 					else if (preH != '0'){
@@ -124,12 +127,11 @@ public class Soundex {
 						}
 					}
 				}
-				else if (cod.charAt(i+1) == 'h'){
-					preH = cod.charAt(i);
-				}
 			}
 		}
-		if ((cod.charAt(cod.length()-1) != (res.charAt(res.length()-1) & 'h' & 'v'))){
+		if (	(cod.charAt(cod.length()-1) != (res.charAt(res.length()-1)) && 
+				((cod.charAt(cod.length()-1) != 'h') && 
+				((cod.charAt(cod.length()-1) != 'v'))))){
 			res = res + cod.charAt(cod.length()-1);
 		}
 		
@@ -137,10 +139,14 @@ public class Soundex {
 	}
 
 	private static String checkLenght(String cod){
+		String res = "";
 		while (cod.length() <= 3){
 			cod = cod + '0'; 
 		}
-		return cod;
+		for (int i=0; i<=3; i++){
+			res = res + cod.charAt(i);					
+		}
+		return res;
 	};
 
 	private static String firstChar(char firstChar, String cod2){

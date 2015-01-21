@@ -7,7 +7,7 @@ public class Test_TDD {
 
 	@Test
 	public void test() {
-		assertEquals("Test toRoman", "A220", Soundex.toSoundex("Aeshahs"));
+		assertEquals("Test Soundex", "S220", Soundex.toSoundex("Hhsjhjeka"));
 	}
 
 }
