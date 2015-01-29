@@ -1,0 +1,1 @@
+CALL GetCourseParticipants(2);
