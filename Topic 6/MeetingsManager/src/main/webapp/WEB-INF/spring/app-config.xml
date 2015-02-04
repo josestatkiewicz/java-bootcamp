@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+						http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+
+	<bean id="meetingManager" class="ar.com.ignacioflores.MeetingsManager.service.SimpleMeetingManager">
+		<property name="meetings">
+			<list>
+				<ref bean="meeting1" />
+				<ref bean="meeting2" />
+				<ref bean="meeting3" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="attendee1" class="ar.com.ignacioflores.MeetingsManager.domain.Attendee">
+		<property name="lastName" value="Gutierrez" />
+		<property name="firstName" value="Marcos" />
+		<property name="dateOfBirth" value="1986-02-14"></property>
+	</bean>
+
+	<bean id="attendee2" class="ar.com.ignacioflores.MeetingsManager.domain.Attendee">
+		<property name="lastName" value="Alvarez" />
+		<property name="firstName" value="Marcela" />
+		<property name="dateOfBirth" value="1992-01-1"></property>
+	</bean>
+
+	<bean id="attendee3" class="ar.com.ignacioflores.MeetingsManager.domain.Attendee">
+		<property name="lastName" value="Nuñez" />
+		<property name="firstName" value="Diana" />
+		<property name="dateOfBirth" value="1990-05-28"></property>
+	</bean>
+
+	<bean id="room1" class="ar.com.ignacioflores.MeetingsManager.domain.Room">
+		<property name="nameRoom" value="Conferences Room" />
+		<property name="size">
+			<list>
+				<value>10</value>
+				<value>8</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="room2" class="ar.com.ignacioflores.MeetingsManager.domain.Room">
+		<property name="nameRoom" value="Meeting Room" />
+		<property name="size">
+			<list>
+				<value>8</value>
+				<value>8</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="room3" class="ar.com.ignacioflores.MeetingsManager.domain.Room">
+		<property name="nameRoom" value="Discussions Room" />
+		<property name="size">
+			<list>
+				<value>10</value>
+				<value>10</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="meeting1" class="ar.com.ignacioflores.MeetingsManager.domain.Meeting">
+		<property name="meetingId" value="1"></property>
+		<property name="attendees">
+			<list value-type="ar.com.ignacioflores.MeetingsManager.domain.Attendee">
+				<ref local="attendee1" />
+				<ref local="attendee2" />
+			</list>
+		</property>
+		<property name="room" ref="room1"></property>
+		<property name="dateSlot" value="2015-03-15"></property>
+		<property name="timeBefore" value="08:00"></property>
+		<property name="timeTo" value="10:00"></property>
+	</bean>
+
+	<bean id="meeting2" class="ar.com.ignacioflores.MeetingsManager.domain.Meeting">
+		<property name="meetingId" value="2"></property>
+		<property name="attendees">
+			<list value-type="ar.com.ignacioflores.MeetingsManager.domain.Attendee">
+				<ref bean="attendee2" />
+			</list>
+		</property>
+		<property name="room" ref="room2"></property>
+		<property name="dateSlot" value="2015-03-16"></property>
+		<property name="timeBefore" value="08:00"></property>
+		<property name="timeTo" value="10:00"></property>
+	</bean>
+
+	<bean id="meeting3" class="ar.com.ignacioflores.MeetingsManager.domain.Meeting">
+		<property name="meetingId" value="3"></property>
+		<property name="attendees">
+			<list value-type="ar.com.ignacioflores.MeetingsManager.domain.Attendee">
+				<ref bean="attendee3" />
+			</list>
+		</property>
+		<property name="room" ref="room3"></property>
+		<property name="dateSlot" value="2015-03-15"></property>
+		<property name="timeBefore" value="10:00"></property>
+		<property name="timeTo" value="12:00"></property>
+	</bean>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+
+	<!-- Scans the classpath of this application for @Components to deploy as 
+		beans -->
+	<context:component-scan base-package="ar.com.ignacioflores.MeetingsManager.web" />
+
+	<!-- Configures the @Controller programming model -->
+	<mvc:annotation-driven />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView"></property>
+		<property name="prefix" value="/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+     
+    
+
+</beans>
