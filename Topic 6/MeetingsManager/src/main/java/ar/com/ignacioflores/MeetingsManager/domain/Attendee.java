@@ -9,11 +9,24 @@ public class Attendee implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	private static int id = 0;
+	private int attendeeId;
 	private String lastName;
 	private String firstName;
 	private SimpleDateFormat ftDate = new SimpleDateFormat("yyyy-MM-dd");
 	private Date dateOfBirth = new Date();
 	
+	public Attendee() {
+		super();
+		this.attendeeId = id;
+		id++;
+	}
+	public int getAttendeeId() {
+		return attendeeId;
+	}
+	public void setAttendeeId(int attendeeId) {
+		this.attendeeId = attendeeId;
+	}
 	public String getLastName() {
 		return lastName.toUpperCase();
 	}

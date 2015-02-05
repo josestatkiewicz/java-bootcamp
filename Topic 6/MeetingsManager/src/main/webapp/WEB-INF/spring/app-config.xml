@@ -18,25 +18,49 @@
 		</property>
 	</bean>
 
+	<bean id="attendeesManager" class="ar.com.ignacioflores.MeetingsManager.service.SimpleAttendeeManager">
+		<property name="attendees">
+			<list>
+				<ref bean="attendee1"/>
+				<ref bean="attendee2"/>
+				<ref bean="attendee3"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="roomManager" class= "ar.com.ignacioflores.MeetingsManager.service.SimpleRoomManager">
+	<property name="rooms">
+		<list>
+			<ref bean="room1"/>
+			<ref bean="room2"/>
+			<ref bean="room3"/>
+		</list>
+	</property>
+	</bean>
+
 	<bean id="attendee1" class="ar.com.ignacioflores.MeetingsManager.domain.Attendee">
+		<property name="attendeeId" value="1" />
 		<property name="lastName" value="Gutierrez" />
 		<property name="firstName" value="Marcos" />
-		<property name="dateOfBirth" value="1986-02-14"></property>
+		<property name="dateOfBirth" value="1986-02-14" />
 	</bean>
 
 	<bean id="attendee2" class="ar.com.ignacioflores.MeetingsManager.domain.Attendee">
+		<property name="attendeeId" value="2" />
 		<property name="lastName" value="Alvarez" />
 		<property name="firstName" value="Marcela" />
-		<property name="dateOfBirth" value="1992-01-1"></property>
+		<property name="dateOfBirth" value="1992-01-1"/>
 	</bean>
 
 	<bean id="attendee3" class="ar.com.ignacioflores.MeetingsManager.domain.Attendee">
+		<property name="attendeeId" value="3" />
 		<property name="lastName" value="Nuñez" />
 		<property name="firstName" value="Diana" />
-		<property name="dateOfBirth" value="1990-05-28"></property>
+		<property name="dateOfBirth" value="1990-05-28" />
 	</bean>
 
 	<bean id="room1" class="ar.com.ignacioflores.MeetingsManager.domain.Room">
+		<property name="roomId" value="1"></property>
 		<property name="nameRoom" value="Conferences Room" />
 		<property name="size">
 			<list>
@@ -47,6 +71,7 @@
 	</bean>
 
 	<bean id="room2" class="ar.com.ignacioflores.MeetingsManager.domain.Room">
+		<property name="roomId" value="2"></property>
 		<property name="nameRoom" value="Meeting Room" />
 		<property name="size">
 			<list>
@@ -57,6 +82,7 @@
 	</bean>
 
 	<bean id="room3" class="ar.com.ignacioflores.MeetingsManager.domain.Room">
+		<property name="roomId" value="3"></property>
 		<property name="nameRoom" value="Discussions Room" />
 		<property name="size">
 			<list>

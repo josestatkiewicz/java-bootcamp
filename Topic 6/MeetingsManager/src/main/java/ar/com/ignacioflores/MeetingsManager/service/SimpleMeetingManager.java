@@ -94,7 +94,13 @@ public class SimpleMeetingManager implements MeetingManager {
 	}
 	
 	public void cancelMeeting(int meeting) {
-		meetings.remove(meeting);
+		Meeting res = null;
+		for (int i=0; i<meetings.size(); i++) {
+			if (meetings.get(i).getMeetingId() == meeting) {
+				res = meetings.get(i);
+			}
+		}
+		meetings.remove(res);
 	}
 	
 	public void updateMeeting(Meeting oldMeeting, Meeting newMeeting) {

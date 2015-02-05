@@ -6,9 +6,23 @@ public class Room implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	private static int id = 0;
+	private int roomId;
 	private String nameRoom;
 	private float[] size = new float[2];
 	
+	
+	public Room() {
+		super();
+		this.roomId = id;
+		id = id+1;
+	}
+	public int getRoomId() {
+		return roomId;
+	}
+	public void setRoomId(int roomId) {
+		this.roomId = roomId;
+	}
 	public String getNameRoom() {
 		return nameRoom;
 	}
