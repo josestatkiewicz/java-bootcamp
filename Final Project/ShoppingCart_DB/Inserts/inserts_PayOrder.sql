@@ -1,0 +1,1 @@
+INSERT INTO `_shoppingcart`.`PayOrder` (`idPayOrder`, `shoppingCart`) VALUES ('1', '1');

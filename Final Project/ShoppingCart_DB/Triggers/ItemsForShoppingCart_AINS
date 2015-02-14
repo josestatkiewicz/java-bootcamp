@@ -1,0 +1,13 @@
+USE `_highschool`;
+DELIMITER |
+CREATE TRIGGER `ItemsForShoppingCart_AINS` AFTER INSERT ON `ItemsForShoppingCart` FOR EACH ROW
+BEGIN
+	IF (SELECT ITP.ItemType
+		FROM ItemsForShoppingCart IFSC, ItemToPurchase ITP
+		WHERE new.item = ITP.idItem) = 'Product') THEN {
+		new.price = (SELECT ITP
+	}
+
+END;
+|
+DELIMITER ;

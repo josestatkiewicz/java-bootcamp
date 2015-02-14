@@ -1,0 +1,11 @@
+USE `_shoppingcart`;
+DELIMITER $$
+create trigger `PayOrder_BUPD` before update on `PayOrder`
+for each row
+begin
+	if (new.payment <> old.payment) then
+		set new.paidDate = (select P.paymentDate 
+							from Payment P
+							where P.idPayment = new.payment);
+	end if;
+end;
